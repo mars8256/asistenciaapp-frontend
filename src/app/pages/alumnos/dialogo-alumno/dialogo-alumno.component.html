@@ -1,0 +1,27 @@
+<div>
+
+    <div [hidden]="true">
+        <mat-form-field>
+            <input matInput placeholder="idAlumno" [(ngModel)]="alumno.idAlumno">
+        </mat-form-field>
+    </div>
+    <mat-form-field>
+        <input matInput placeholder="Nombres" [(ngModel)]="alumno.nombres">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Apellidos" [(ngModel)]="alumno.apellidos">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Carnet" [(ngModel)]="alumno.carnet">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Correo" [(ngModel)]="alumno.correo">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Telefono" [(ngModel)]="alumno.telefono">
+    </mat-form-field>
+
+
+</div>
+<button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+<button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button> 

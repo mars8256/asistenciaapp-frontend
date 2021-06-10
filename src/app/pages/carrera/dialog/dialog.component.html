@@ -1,0 +1,31 @@
+<div>
+   
+    
+    <div [hidden]="true">
+        <mat-form-field>
+            <input matInput placeholder="idCarrera" [(ngModel)]="carrera.idCarrera">
+        </mat-form-field>
+    </div>
+    <br>
+
+    <mat-form-field appearance="fill"  [style.width.px]=327>
+        <mat-label>Facultad</mat-label>
+        <mat-select placeholder="Facultad" 
+                [(value)]="idFacultadSeleccionado">
+          <mat-option *ngFor="let f of facultades" [value]="f.idFacultad">
+            {{f.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <br>
+    <mat-form-field  [style.width.px]=327>
+        <input matInput placeholder="Nombre" [(ngModel)]="carrera.nombre">
+    </mat-form-field>
+
+   
+
+</div>
+<button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+<button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button> 
+

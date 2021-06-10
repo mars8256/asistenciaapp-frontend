@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { HOST } from './../_shared/var.constants';
 import { HttpClient } from '@angular/common/http';
 import { Alumno } from './../_model/alumno';
@@ -9,6 +10,8 @@ import { Injectable } from '@angular/core';
 })
 export class AlumnoService {
 
+  alumnoCambio = new Subject<Alumno[]>()
+  mensajeCambio = new Subject<string>()
   url: string = HOST;
 
 
@@ -19,8 +22,8 @@ export class AlumnoService {
     return this.http.get<Alumno[]>(`${this.url}/alumnos`)
   }
 
-  listarPorId(alumno : Alumno){
-    return this.http.get<Alumno>(`${this.url}/alumnos/${alumno.idAlumno}`)
+  listarPorId(idAlumno : number){
+    return this.http.get<Alumno>(`${this.url}/alumnos/${idAlumno}`)
   }
 
   registrar(alumno : Alumno){
@@ -31,8 +34,8 @@ export class AlumnoService {
     return this.http.put(`${this.url}/alumnos`,alumno)
   }
 
-  eliminar(alumno : Alumno){
-    return this.http.delete(`${this.url}/alumnos/${alumno.idAlumno}`)
+  eliminar(idAlumno : number){
+    return this.http.delete(`${this.url}/alumnos/${idAlumno}`)
   }
 
 }
