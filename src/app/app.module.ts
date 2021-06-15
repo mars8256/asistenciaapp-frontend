@@ -19,6 +19,7 @@ import { DialogComponent } from './pages/carrera/dialog/dialog.component';
 import { DialogoCatedraticoComponent } from './pages/catedratico/dialogo-catedratico/dialogo-catedratico.component';
 import { DialogoFacultadComponent } from './pages/facultad/dialogo-facultad/dialogo-facultad.component';
 import { DialogoAlumnoComponent } from './pages/alumnos/dialogo-alumno/dialogo-alumno.component';
+import { DialogoCursoComponent } from './pages/curso/dialogo-curso/dialogo-curso.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { DialogoAlumnoComponent } from './pages/alumnos/dialogo-alumno/dialogo-a
     DialogComponent,
     DialogoCatedraticoComponent,
     DialogoFacultadComponent,
-    DialogoAlumnoComponent
+    DialogoAlumnoComponent,
+    DialogoCursoComponent
   ],  
   entryComponents : [DialogoComponent],
   imports: [

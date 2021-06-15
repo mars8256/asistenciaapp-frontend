@@ -2,6 +2,8 @@ import { Alumno } from './../../../_model/alumno';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlumnoService } from 'src/app/_service/alumno.service';
+import { HttpResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-dialogo-alumno',
@@ -39,7 +41,9 @@ export class DialogoAlumnoComponent implements OnInit {
         })
       })
     } else {
-      this.alumnoService.registrar(this.alumno).subscribe(data =>{
+      this.alumnoService.registrar(this.alumno)
+      .subscribe(data=>{   
+      console.log(data.headers)
         this.alumnoService.listar().subscribe(alumnos =>{
           this.alumnoService.alumnoCambio.next(alumnos)
           this.alumnoService.mensajeCambio.next('Registro grabado')

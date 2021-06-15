@@ -20,8 +20,9 @@ import { DialogComponent } from './dialog/dialog.component';
 export class CarreraComponent implements OnInit {
 
 
-  displayedColumns = ['idCarrera','nombre','acciones']
+  displayedColumns = ['idCarrera','facultad','nombre','acciones']
   dataSource: MatTableDataSource<Carrera>
+  
   @ViewChild(MatSort) sort: MatSort
   @ViewChild(MatPaginator) paginator:MatPaginator
   facultades : Facultad[] = []
@@ -41,11 +42,24 @@ export class CarreraComponent implements OnInit {
     this.listar()
   }
 
+
   listar(){
     this.carreraService.listar().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator
+    })
+
+    this.carreraService.carreraCambio.subscribe(data => {
+      this.dataSource = new MatTableDataSource(data)
+      this.dataSource.sort = this.sort
+      this.dataSource.paginator = this.paginator
+    })
+
+    this.carreraService.mensajeCambio.subscribe(data => {
+      this.snackBar.open(data, 'AVISO',{
+        duration:2000
+      })
     })
   }
 
@@ -77,6 +91,18 @@ export class CarreraComponent implements OnInit {
     this.facultadService.listar().subscribe(data => {
       this.facultades = data
     })
+  }
+
+  find(){
+    console.log('mensaje')
+    if (this.idFacultadSeleccionado != null){
+      console.log(this.idFacultadSeleccionado)
+      this.carreraService.listarPorFacultadId(this.idFacultadSeleccionado).subscribe(datos =>{
+        this.dataSource = new MatTableDataSource(datos)
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator
+      })
+    }
   }
 
 }

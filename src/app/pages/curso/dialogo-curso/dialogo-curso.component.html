@@ -1,0 +1,27 @@
+<div>
+    <div [hidden]="true">
+        <mat-form-field>
+            <input matInput placeholder="idCurso" [(ngModel)]="curso.idCurso">
+        </mat-form-field>
+    </div>
+    <mat-form-field   [style.width.px]=327 style="margin: 5px;">
+        <mat-label>Carrera</mat-label>
+        <mat-select placeholder="Carrera" 
+                [(value)]="idCarreraSeleccionado">
+          <mat-option *ngFor="let c of carreras" [value]="c.idCarrera">
+            {{c.nombre}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field [style.width.px]=327 style="margin: 5px;">
+        <input matInput placeholder="Nombre" [(ngModel)]="curso.nombre">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="margin: 5px;">
+        <input matInput placeholder="Creditos" [(ngModel)]="curso.creditos">
+    </mat-form-field>
+
+</div>
+<button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+<button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button> 

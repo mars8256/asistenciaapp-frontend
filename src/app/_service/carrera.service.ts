@@ -23,7 +23,13 @@ export class CarreraService {
     return this.http.get<Carrera>(`${this.url}/carrera/${carrera.idCarrera}`)
   }
 
+  listarPorFacultadId(idFacultad: number){
+    console.log(`${this.url}/carrera/facultad/${idFacultad}`)
+    return this.http.get<Carrera[]>(`${this.url}/carrera/facultad/${idFacultad}`)
+  }
+
   registrar(carrera: Carrera){
+    console.log(carrera)
     return this.http.post(`${this.url}/carrera`, carrera)
   }
 

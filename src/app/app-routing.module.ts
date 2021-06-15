@@ -1,3 +1,4 @@
+import { CursoComponent } from './pages/curso/curso.component';
 import { TokenComponent } from './pages/token/token.component';
 import { AlumnoEdicionComponent } from './pages/alumnos/alumno-edicion/alumno-edicion.component';
 import { CarreraComponent } from './pages/carrera/carrera.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'catedratico', component : CatedraticoComponent},
   { path: 'facultad', component : FacultadComponent},
   { path: 'carrera', component : CarreraComponent},
-  { path: 'token', component: TokenComponent}
+  { path: 'token', component: TokenComponent},
+  { path: 'curso', component: CursoComponent}
 ];
 
 @NgModule({

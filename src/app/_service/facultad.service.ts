@@ -19,8 +19,8 @@ export class FacultadService {
     return this.http.get<Facultad[]>(`${this.url}/facultad`)
   }
 
-  listarPorId(facultad: Facultad){
-    return this.http.get<Facultad>(`${this.url}/facultad/${facultad.idFacultad}`)
+  listarPorId(idFacultad: number){
+    return this.http.get<Facultad>(`${this.url}/facultad/${idFacultad}`)
   }
 
   registrar(facultad: Facultad){
